@@ -1,0 +1,1676 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://assets/ball.png" type="Texture" id=1]
+[ext_resource path="res://Ball.gd" type="Script" id=2]
+[ext_resource path="res://Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://assets/tile_bg_blur.jpg" type="Texture" id=4]
+[ext_resource path="res://assets/tile2.png" type="Texture" id=5]
+[ext_resource path="res://Traps.gd" type="Script" id=6]
+[ext_resource path="res://assets/spear.png" type="Texture" id=7]
+[ext_resource path="res://assets/tile.jpg" type="Texture" id=8]
+[ext_resource path="res://spears_wheel.gd" type="Script" id=9]
+[ext_resource path="res://rotate.gd" type="Script" id=10]
+[ext_resource path="res://assets/KELMSCOT.TTF" type="DynamicFontData" id=11]
+[ext_resource path="res://Goal.gd" type="Script" id=12]
+[ext_resource path="res://assets/heart.png" type="Texture" id=13]
+[ext_resource path="res://UI.gd" type="Script" id=14]
+
+[sub_resource type="PhysicsMaterial" id=3]
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 34.1321
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 6.5, 9.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 255.75, 14 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 49.9999, 49.5001 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 94
+font_data = ExtResource( 11 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 226.563, 71.9063 )
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotating = true
+current = true
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D"]
+modulate = Color( 0.513726, 0.513726, 0.513726, 1 )
+margin_left = -3000.0
+margin_top = -3000.0
+margin_right = 3000.0
+margin_bottom = 3000.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2( -162, -1526 )
+physics_material_override = SubResource( 3 )
+gravity_scale = 0.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ball"]
+position = Vector2( -1, 3.37356 )
+scale = Vector2( 0.316092, 0.325903 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="Ball"]
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Traps" type="Node2D" parent="Map"]
+position = Vector2( 0, 4 )
+script = ExtResource( 6 )
+
+[node name="spear1" type="Area2D" parent="Map/Traps"]
+position = Vector2( -156, 257 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear1"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear1"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear3" type="Area2D" parent="Map/Traps"]
+position = Vector2( 727, 220 )
+rotation = -1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear3"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear3"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear20" type="Area2D" parent="Map/Traps"]
+position = Vector2( 1178, -1172 )
+rotation = -1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear20"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear20"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear5" type="Area2D" parent="Map/Traps"]
+position = Vector2( 69, 508 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear5"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear5"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear6" type="Area2D" parent="Map/Traps"]
+position = Vector2( 72, 764 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear6"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear6"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear10" type="Area2D" parent="Map/Traps"]
+position = Vector2( 786, 217 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear10"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear10"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear18" type="Area2D" parent="Map/Traps"]
+position = Vector2( 302, -257 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear18"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear18"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear19" type="Area2D" parent="Map/Traps"]
+position = Vector2( 733, -718 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear19"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear19"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear26" type="Area2D" parent="Map/Traps"]
+position = Vector2( -683, -1105 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear26"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear26"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear11" type="Area2D" parent="Map/Traps"]
+position = Vector2( 701, -501 )
+rotation = 3.14159
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear11"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear11"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear12" type="Area2D" parent="Map/Traps"]
+position = Vector2( 499, -502 )
+rotation = 3.14159
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear12"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear12"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear13" type="Area2D" parent="Map/Traps"]
+position = Vector2( 812, -248 )
+rotation = 3.14159
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear13"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear13"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear14" type="Area2D" parent="Map/Traps"]
+position = Vector2( 851, -248 )
+rotation = 3.14159
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear14"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear14"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear17" type="Area2D" parent="Map/Traps"]
+position = Vector2( 964, -634 )
+rotation = 3.14159
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear17"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear17"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear22" type="Area2D" parent="Map/Traps"]
+position = Vector2( -118, -1204 )
+rotation = 3.14159
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear22"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear22"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear24" type="Area2D" parent="Map/Traps"]
+position = Vector2( -289, -1211 )
+rotation = 3.14159
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear24"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear24"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear27" type="Area2D" parent="Map/Traps"]
+position = Vector2( -368, -1023 )
+rotation = 3.14159
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear27"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear27"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear25" type="Area2D" parent="Map/Traps"]
+position = Vector2( -686, -1203 )
+rotation = 2.04902
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear25"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear25"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear15" type="Area2D" parent="Map/Traps"]
+position = Vector2( 452, -152 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear15"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear15"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear16" type="Area2D" parent="Map/Traps"]
+position = Vector2( 491, -152 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear16"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear16"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear21" type="Area2D" parent="Map/Traps"]
+position = Vector2( 1145, -706 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear21"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear21"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear23" type="Area2D" parent="Map/Traps"]
+position = Vector2( 418, -715 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear23"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear23"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear4" type="Area2D" parent="Map/Traps"]
+position = Vector2( 726, 257 )
+rotation = -1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear4"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear4"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear8" type="Area2D" parent="Map/Traps"]
+position = Vector2( 993, 564 )
+rotation = -1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear8"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear8"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear9" type="Area2D" parent="Map/Traps"]
+position = Vector2( 992, 601 )
+rotation = -1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear9"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear9"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear2" type="Area2D" parent="Map/Traps"]
+position = Vector2( -116, 257 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear2"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear2"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="spear7" type="Area2D" parent="Map/Traps"]
+position = Vector2( 503, 792 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/spear7"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/Traps/spear7"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="Floors" type="Node2D" parent="Map"]
+
+[node name="large5" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 513, 154 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large5"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large5"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large13" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 30, -208 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large13"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large13"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large21" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 254, -670 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large21"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large21"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large31" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( -471, -208 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large31"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large31"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large22" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 953, -662 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large22"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large22"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large25" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 450, -1235 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large25"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large25"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large30" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( -48, -1235 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large30"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large30"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large40" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( -580, -1045 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large40"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large40"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large37" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( -125, -1835 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large37"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large37"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large27" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 960, -1235 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large27"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large27"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large8" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 513, 638 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large8"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large8"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large39" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 305, 464 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large39"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large39"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large15" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 283, 822 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large15"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large15"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large16" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 782, 822 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large16"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large16"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large11" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 32, 287 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large11"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large11"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large12" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 254, 288 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large12"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large12"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large6" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 755, 397 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large6"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large6"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large7" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 755, 397 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large7"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large7"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large17" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 1022, 579 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large17"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large17"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large18" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 1022, 80 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large18"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large18"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large19" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 1019, -419 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large19"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large19"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large20" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 272, -428 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large20"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large20"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="cube" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 834, -307 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/cube"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/cube"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="cube3" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( -648, -806 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/cube3"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/cube3"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="cube4" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( -236, -811 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/cube4"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/cube4"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="cube5" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( -436, -806 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/cube5"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/cube5"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="cube2" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 474, -90 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/cube2"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/cube2"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large26" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 1221, -903 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large26"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large26"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="rotate" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 962, -950 )
+rotation = -1.48877
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/rotate"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/rotate"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="rotate2" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 150, -950 )
+rotation = -1.48877
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/rotate2"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/rotate2"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large28" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 1221, -1411 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large28"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large28"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large29" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( -172, -989 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large29"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large29"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large36" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( -367, -1811 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large36"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large36"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large38" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 60, -1594 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large38"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large38"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large23" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 499, -763 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large23"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large23"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large24" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 702, -766 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large24"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large24"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large9" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 271, -89 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large9"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large9"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large10" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( -210, 36 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large10"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large10"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large32" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( -713, -451 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large32"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large32"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large33" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( -713, -958 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large33"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large33"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large34" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( -542, -1385 )
+rotation = 2.35619
+scale = Vector2( 1, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large34"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large34"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large35" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( -118, -1410 )
+rotation = 2.35619
+scale = Vector2( 1, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large35"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large35"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="large14" type="StaticBody2D" parent="Map/Floors"]
+position = Vector2( 41, 551 )
+rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floors/large14"]
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Map/Floors/large14"]
+modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -13.0
+margin_right = 255.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="spears_wheel" type="Area2D" parent="Map"]
+position = Vector2( -276, -420 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/spears_wheel"]
+position = Vector2( 0.5, -126.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/spears_wheel"]
+position = Vector2( -1, -116 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="Map/spears_wheel"]
+modulate = Color( 0.866667, 0.854902, 0, 1 )
+position = Vector2( 0, -50.2816 )
+scale = Vector2( 0.0133333, 0.243193 )
+texture = ExtResource( 8 )
+
+[node name="spears_wheel2" type="Area2D" parent="Map"]
+position = Vector2( -559, -540 )
+rotation = 1.53065
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/spears_wheel2"]
+position = Vector2( 0.5, -126.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/spears_wheel2"]
+position = Vector2( -1, -116 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="Map/spears_wheel2"]
+modulate = Color( 0.866667, 0.854902, 0, 1 )
+position = Vector2( 0, -50.2816 )
+scale = Vector2( 0.0133333, 0.243193 )
+texture = ExtResource( 8 )
+
+[node name="spears_wheel4" type="Area2D" parent="Map"]
+position = Vector2( -438, -802 )
+rotation = 1.53065
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/spears_wheel4"]
+position = Vector2( 0.5, -126.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/spears_wheel4"]
+position = Vector2( -1, -116 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="Map/spears_wheel4"]
+modulate = Color( 0.866667, 0.854902, 0, 1 )
+position = Vector2( 0, -50.2816 )
+scale = Vector2( 0.0133333, 0.243193 )
+texture = ExtResource( 8 )
+
+[node name="spears_wheel3" type="Area2D" parent="Map"]
+position = Vector2( 91, -445 )
+rotation = -2.07694
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/spears_wheel3"]
+position = Vector2( 0.5, -126.5 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Map/spears_wheel3"]
+position = Vector2( -1, -116 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="Map/spears_wheel3"]
+modulate = Color( 0.866667, 0.854902, 0, 1 )
+position = Vector2( 0, -50.2816 )
+scale = Vector2( 0.0133333, 0.243193 )
+texture = ExtResource( 8 )
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2( -152, -1717 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Goal"]
+margin_left = -146.0
+margin_top = -44.0
+margin_right = 147.0
+margin_bottom = 61.0
+custom_colors/font_color = Color( 1, 0.988235, 0.67451, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "GOAL"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2( 0, -48.9063 )
+shape = SubResource( 7 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource( 14 )
+
+[node name="life1" type="TextureRect" parent="UI"]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 11.0
+margin_top = 9.0
+margin_right = 81.0
+margin_bottom = 69.0
+texture = ExtResource( 13 )
+expand = true
+
+[node name="life2" type="TextureRect" parent="UI"]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 87.0
+margin_top = 9.0
+margin_right = 157.0
+margin_bottom = 69.0
+texture = ExtResource( 13 )
+expand = true
+
+[node name="life3" type="TextureRect" parent="UI"]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 165.0
+margin_top = 9.0
+margin_right = 235.0
+margin_bottom = 69.0
+texture = ExtResource( 13 )
+expand = true
+
+[node name="LOST" type="ColorRect" parent="UI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.623529 )
+
+[node name="Label" type="Label" parent="UI/LOST"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 0.109804, 0.109804, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "ELIMINADO"
+align = 1
+valign = 1
+
+[node name="WIN" type="ColorRect" parent="UI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.623529 )
+
+[node name="Label" type="Label" parent="UI/WIN"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.945098, 1, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "VICTORIA!"
+align = 1
+valign = 1
