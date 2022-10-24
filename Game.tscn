@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/ball.png" type="Texture" id=1]
 [ext_resource path="res://Ball.gd" type="Script" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://UI.gd" type="Script" id=14]
 [ext_resource path="res://assets/IMFePIsc28P_0.ttf" type="DynamicFontData" id=15]
 [ext_resource path="res://assets/the_rock.png" type="Texture" id=16]
+[ext_resource path="res://assets/music.mp3" type="AudioStream" id=17]
+[ext_resource path="res://assets/crash.mp3" type="AudioStream" id=18]
 
 [sub_resource type="PhysicsMaterial" id=3]
 bounce = 0.5
@@ -102,6 +104,9 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="Ball"]
+
+[node name="ASP_crash" type="AudioStreamPlayer" parent="Ball"]
+stream = ExtResource( 18 )
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -1806,3 +1811,8 @@ align = 1
 valign = 1
 
 [node name="Tween" type="Tween" parent="UI"]
+
+[node name="ASP_music" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 17 )
+volume_db = -14.857
+autoplay = true

@@ -12,7 +12,7 @@ func _ready():
 	for i in $START.get_children(): i.modulate.a = 0
 	yield(get_tree().create_timer(1),"timeout")
 	for i in $START.get_children(): 
-		$Tween.interpolate_property(i,"modulate",Color(1,1,1,0),Color(1,1,1,1),.5,Tween.TRANS_QUAD,Tween.EASE_OUT,i.get_index()*1)
+		$Tween.interpolate_property(i,"modulate",Color(1,1,1,0),Color(1,1,1,1),.3,Tween.TRANS_QUAD,Tween.EASE_OUT,i.get_index()*.5)
 	$Tween.start()
 
 func onTimeTick(ticks = 1):
