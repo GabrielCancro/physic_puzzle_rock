@@ -8,6 +8,7 @@ func _ready():
 func onBodyEntered(body):
 	if(body==BALL):
 		get_node("/root/Game/UI/WIN").visible = true
-		get_tree().paused = true 
-		yield(get_tree().create_timer(2.5),"timeout")
+		get_node("/root/Game/UI/Timer").stop()
+		get_tree().paused = true
+		yield(get_tree().create_timer(2),"timeout")
 		get_tree().quit(1)

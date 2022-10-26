@@ -10,4 +10,4 @@ func _process(delta):
 	
 func onBodyEntered(body):
 	print(body.name)
-	if(body==BALL): body.hit()
+	if(body==BALL): body.hit(self)

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var lives = 3
+onready var lives = $life.get_children().size()
 var segs = 120
 
 func _ready():
@@ -35,12 +35,10 @@ func _process(delta):
 	
 func hit_lives():
 	lives -= 1
-	if lives<3: $life3.modulate = Color(.1,.1,.1)
-	if lives<2: $life2.modulate = Color(.1,.1,.1)
-	if lives<1: $life1.modulate = Color(.1,.1,.1)
 	if lives<0: 
 		get_tree().paused = true
 		$LOST.visible = true
 		$Timer.stop()
 		yield(get_tree().create_timer(2.5),"timeout")
 		get_tree().quit(2)
+	else: $life.get_child(lives).modulate = Color(.1,.1,.1)

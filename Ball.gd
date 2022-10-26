@@ -20,8 +20,9 @@ func _integrate_forces(state):
 	if state.linear_velocity.length()>max_speed+propulse:
 		state.linear_velocity=state.linear_velocity.normalized()*(max_speed+propulse)
 
-func hit():
+func hit(trap):
 	if inmune>0: return
+	trap.queue_free()
 	get_node("/root/Game/UI").hit_lives()
 	apply_central_impulse( -dir * 900 )
 	$Tween.interpolate_property($Sprite,"modulate", Color(1,0,0),Color(1,1,1),1,Tween.TRANS_QUAD,Tween.EASE_OUT)

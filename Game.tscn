@@ -1652,39 +1652,61 @@ shape = SubResource( 7 )
 pause_mode = 2
 script = ExtResource( 14 )
 
-[node name="life1" type="TextureRect" parent="UI"]
+[node name="life" type="HBoxContainer" parent="UI"]
+margin_left = 48.0
+margin_right = 464.0
+margin_bottom = 80.0
+
+[node name="life1" type="TextureRect" parent="UI/life"]
 modulate = Color( 1, 0, 0, 1 )
-margin_left = 11.0
-margin_top = 9.0
-margin_right = 81.0
-margin_bottom = 69.0
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
 texture = ExtResource( 13 )
 expand = true
 
-[node name="life2" type="TextureRect" parent="UI"]
+[node name="life2" type="TextureRect" parent="UI/life"]
 modulate = Color( 1, 0, 0, 1 )
-margin_left = 87.0
-margin_top = 9.0
-margin_right = 157.0
-margin_bottom = 69.0
+margin_left = 84.0
+margin_right = 164.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
 texture = ExtResource( 13 )
 expand = true
 
-[node name="life3" type="TextureRect" parent="UI"]
+[node name="life3" type="TextureRect" parent="UI/life"]
 modulate = Color( 1, 0, 0, 1 )
-margin_left = 165.0
-margin_top = 9.0
-margin_right = 235.0
-margin_bottom = 69.0
+margin_left = 168.0
+margin_right = 248.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture = ExtResource( 13 )
+expand = true
+
+[node name="life4" type="TextureRect" parent="UI/life"]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 252.0
+margin_right = 332.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture = ExtResource( 13 )
+expand = true
+
+[node name="life5" type="TextureRect" parent="UI/life"]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 336.0
+margin_right = 416.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
 texture = ExtResource( 13 )
 expand = true
 
 [node name="lb_time" type="Label" parent="UI"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -170.0
+margin_left = 80.0
 margin_top = -12.0
-margin_right = 170.0
+margin_right = 420.0
 margin_bottom = 76.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 11 )
